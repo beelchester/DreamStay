@@ -1,3 +1,3 @@
 # DreamStay
-A vacation rental dummy platform
+A vacation rental booking dummy platform
 (in progress)
