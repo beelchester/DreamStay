@@ -33,7 +33,7 @@ const NavMenu = () => {
                 cursor-pointer
             "
         >
-            Rent a house
+            Rent your home
         </div>
         <div 
         onClick={() => setIsOpen(!isOpen)}
@@ -64,7 +64,7 @@ const NavMenu = () => {
                     className='
                     absolute
                     rounded-xl
-                    shadow-md
+                    shadow-lg
                     w-[40vw]
                     md:w-3/4
                     bg-white
@@ -85,11 +85,11 @@ const NavMenu = () => {
                         onClick={()=>{}}
                         label='Login'
                     />
-                    <MenuItem
-                        onClick={()=>{}}
-                        label='Sign Up'
-                    />
                 </>
+                <MenuItem
+                onClick={()=>{}}
+                        label='Sign Up'
+                            />
                 </div>
                 </div>
             )

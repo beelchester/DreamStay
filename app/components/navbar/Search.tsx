@@ -45,7 +45,7 @@ className="
     text-center
 "
 >
-   Any Week 
+   Any week 
 </div>
 
 <div
@@ -57,10 +57,10 @@ className="
     flex
     flex-row
     items-center
-    gap-3
+    gap-4
 "
 >
-<div className="hidden sm:block">Add Guests</div>
+<div className="hidden sm:block">Add guests</div>
 <div
 className="
     p-2
