@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react"
 import {store} from '../store'
 import { Provider } from "react-redux"
+import ToasterProvider from "../ToasterProvider"
 
 interface clientOnlyProps {
     children: React.ReactNode
@@ -19,6 +20,7 @@ const ClientOnly:React.FC<clientOnlyProps> = ({children}) => {
 
   return (
     <Provider store={store}>
+        <ToasterProvider />
         {children}
     </Provider>
   )

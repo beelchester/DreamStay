@@ -43,17 +43,22 @@ const Modal:React.FC<ModalProps> = ({
         }, 300);
     }, [disabled,onClose])
 
-    const submitHandler = useCallback(() => {
-        onSubmit()
-        setTimeout(() => {
-            closeModal()
-        }, 300);
-    }, [disabled,onSubmit])
+    // const submitHandler = useCallback(() => {
+    //     onSubmit()
+    //     setTimeout(() => {
+    //         closeModal()
+    //     }, 300);
+    // }, [disabled,onSubmit])
 
     const secondaryActionHandler = useCallback(() => {
         if(disabled || !secondaryAction) return
         secondaryAction()
         }, [disabled,secondaryAction])
+
+    if (!isOpen) {
+    return null;
+  }
+
 
   return (
   <>
@@ -142,7 +147,7 @@ className="flex flex-row gap-4 w-full items-center"
 >
 <Button 
 label={actionLabel}
-onClick={submitHandler}
+onClick={onSubmit}
 disabled={disabled}
 />
 { secondaryActionLabel &&
@@ -154,6 +159,7 @@ outline
 />
 }
 </div>
+{footer}
 </div>
     </div>
   </div>

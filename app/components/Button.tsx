@@ -32,7 +32,7 @@ const Button:React.FC<ButtonProps> = ({
     w-full
     ${outline?'bg-white':'bg-purple-500'}
     ${outline?'border-black':'bg-purple-500'}
-    ${outline?'text-black':'bg-purple-500'}
+    ${outline?'text-black':'text-white'}
     ${small?'py-1':'py-3'}
     ${small?'text-sm':'text-md'}
     ${small?'font-light':'font-semibold'}

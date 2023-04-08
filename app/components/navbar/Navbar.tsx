@@ -9,14 +9,6 @@ import { useEffect } from "react"
 
 const Navbar = () => {
 
-    const modal = useSelector((state: any) => state.signupModal.isOpen)
-    console.log(modal)
-    const dispatch = useDispatch()
-    useEffect(() => {
-    dispatch(openSignupModal())
-    console.log(modal)
-    }, [])
-
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm"
     >

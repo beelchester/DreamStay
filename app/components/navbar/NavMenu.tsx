@@ -3,12 +3,15 @@ import {AiOutlineMenu} from 'react-icons/ai'
 import User from '../User'
 import { useState } from 'react'
 import MenuItem from './MenuItem'
+import { useDispatch } from 'react-redux'
+import { openSignupModal } from '@/app/features/signupModalSlice'
 
 
 const NavMenu = () => {
 
     const [isOpen,setIsOpen] = useState(false)
-
+    
+    const dispatch = useDispatch()
 
   return (
     <div
@@ -87,7 +90,9 @@ const NavMenu = () => {
                     />
                 </>
                 <MenuItem
-                onClick={()=>{}}
+                onClick={()=>{
+                        dispatch(openSignupModal())
+                    }}
                         label='Sign Up'
                             />
                 </div>
