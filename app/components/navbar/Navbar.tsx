@@ -1,10 +1,22 @@
 'use client'
+import { useDispatch, useSelector } from "react-redux"
 import Container from "../Container"
 import Logo from "./Logo"
 import NavMenu from "./NavMenu"
 import Search from "./Search"
+import { openSignupModal } from "@/app/features/signupModalSlice"
+import { useEffect } from "react"
 
 const Navbar = () => {
+
+    const modal = useSelector((state: any) => state.signupModal.isOpen)
+    console.log(modal)
+    const dispatch = useDispatch()
+    useEffect(() => {
+    dispatch(openSignupModal())
+    console.log(modal)
+    }, [])
+
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm"
     >

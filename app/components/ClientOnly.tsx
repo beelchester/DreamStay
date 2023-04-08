@@ -1,5 +1,7 @@
 'use client'
 import { useState, useEffect } from "react"
+import {store} from '../store'
+import { Provider } from "react-redux"
 
 interface clientOnlyProps {
     children: React.ReactNode
@@ -16,9 +18,9 @@ const ClientOnly:React.FC<clientOnlyProps> = ({children}) => {
     }
 
   return (
-    <>
+    <Provider store={store}>
         {children}
-    </>
+    </Provider>
   )
 }
 
