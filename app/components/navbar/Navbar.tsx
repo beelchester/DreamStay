@@ -6,8 +6,16 @@ import NavMenu from "./NavMenu"
 import Search from "./Search"
 import { openSignupModal } from "@/app/features/signupModalSlice"
 import { useEffect } from "react"
+import { User } from "@prisma/client"
 
-const Navbar = () => {
+interface NavbarProps {
+        currentUser?: User
+    }
+
+const Navbar:React.FC<NavbarProps> = ({
+    currentUser,
+    }) => {
+
 
   return (
     <div className="fixed w-full bg-white z-10 shadow-sm"
@@ -26,7 +34,7 @@ const Navbar = () => {
 
     <Logo/>
     <Search/>
-    <NavMenu/>
+    <NavMenu currentUser={currentUser}/>
     </div>
     </Container>
 

@@ -12,6 +12,8 @@ import Input from "../inputs/Input"
 import { toast } from "react-hot-toast"
 import Button from "../Button"
 import {FcGoogle} from 'react-icons/fc'
+import { openLoginModal } from "@/app/features/loginModalSlice"
+import { signIn } from "next-auth/react"
 
 const SignupModal = () => {
 
@@ -91,13 +93,13 @@ const SignupModal = () => {
                 outline
                 label = "Continue with Google"
                 icon = {FcGoogle}
-                onClick={() => {}}
+                onClick={() => signIn('google')} 
             />
             <Button 
                 outline
                 label = "Continue with Github"
                 icon = {AiFillGithub}
-                onClick={() => {}}
+                onClick={() => signIn('github')}
             />
             <div 
         className="
@@ -110,7 +112,10 @@ const SignupModal = () => {
       <div className="flex flex-row justify-center items-center gap-2">
         <div>Already have an account?</div>
           <div 
-            onClick={() => {}}
+            onClick={() => {
+                    dispatch(closeSignupModal())
+                    dispatch(openLoginModal())
+                }}
             className="
               text-neutral-800
               cursor-pointer 

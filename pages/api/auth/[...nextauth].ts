@@ -32,7 +32,7 @@ export const authOptions: AuthOptions = {
                         email: credentials.email
                     }
                 })
-                if (!user || user?.hashedPassword) {
+                if (!user || !user?.hashedPassword) {
                     throw new Error("Invalid credentials")
                 }
 

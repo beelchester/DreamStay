@@ -1,14 +1,24 @@
 'use client'
 import {AiOutlineMenu} from 'react-icons/ai'
-import User from '../User'
+import Avatar from '../Avatar'
 import { useState } from 'react'
 import MenuItem from './MenuItem'
 import { useDispatch } from 'react-redux'
 import { openSignupModal } from '@/app/features/signupModalSlice'
+import { openLoginModal } from '@/app/features/loginModalSlice'
+import { User } from '@prisma/client'
+import { signOut } from 'next-auth/react'
+
+interface NavMenuProps {
+    currentUser?: User
+}
+
+const NavMenu:React.FC<NavMenuProps> = ({
+    currentUser,
+    }) => {
 
 
-const NavMenu = () => {
-
+console.log(currentUser)
     const [isOpen,setIsOpen] = useState(false)
     
     const dispatch = useDispatch()
@@ -56,7 +66,7 @@ const NavMenu = () => {
 
             <AiOutlineMenu />
             <div className='hidden md:block'>
-            <User/>
+            <Avatar src={currentUser?.image}/>
             </div>
 
         </div>
@@ -83,18 +93,48 @@ const NavMenu = () => {
                         flex flex-col cursor-pointer
                     '
                 >
+                {currentUser ? (
+                <>
+                <MenuItem 
+                  label="My trips" 
+                  onClick={()=>{}}
+                />
+                <MenuItem 
+                  label="My favorites" 
+                  onClick={()=>{}}
+                />
+                <MenuItem 
+                  label="My reservations" 
+                  onClick={()=>{}}
+                />
+                <MenuItem 
+                  label="My properties" 
+                  onClick={()=>{}}
+                />
+                <MenuItem 
+                  label="Rent your home" 
+                  onClick={()=>{}}
+                />
+                <hr />
+                <MenuItem 
+                  label="Logout" 
+                  onClick={() => signOut()}
+                />
+              </>
+                ):(
                 <>
                     <MenuItem
-                        onClick={()=>{}}
+                        onClick={()=>{dispatch(openLoginModal())}}
                         label='Login'
                     />
-                </>
                 <MenuItem
                 onClick={()=>{
                         dispatch(openSignupModal())
                     }}
                         label='Sign Up'
                             />
+                </>
+                )}
                 </div>
                 </div>
             )

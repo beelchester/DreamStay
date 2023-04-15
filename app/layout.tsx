@@ -1,4 +1,6 @@
+import getCurrentUser from './actions/getCurrentUser'
 import ClientOnly from './components/ClientOnly'
+import LoginModal from './components/modals/LoginModal'
 import Modal from './components/modals/Modal'
 import SignupModal from './components/modals/SignupModal'
 import Navbar from './components/navbar/Navbar'
@@ -14,17 +16,19 @@ const font = Nunito({
         subsets: ['latin'],
     })
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+    const currentUser = await getCurrentUser()
   return (
     <html lang="en">
       <body className={font.className}>
       <ClientOnly>
       <SignupModal/>
-      <Navbar/>
+      <LoginModal/>
+      <Navbar currentUser={currentUser}/>
       </ClientOnly>
       {children}</body>
     </html>
