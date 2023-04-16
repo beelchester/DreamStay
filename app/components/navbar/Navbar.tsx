@@ -7,6 +7,7 @@ import Search from "./Search"
 import { openSignupModal } from "@/app/features/signupModalSlice"
 import { useEffect } from "react"
 import { User } from "@prisma/client"
+import Categories from "./Categories"
 
 interface NavbarProps {
         currentUser?: User
@@ -37,9 +38,8 @@ const Navbar:React.FC<NavbarProps> = ({
     <NavMenu currentUser={currentUser}/>
     </div>
     </Container>
-
-
     </div>
+    <Categories/>
     </div>
   )
 }
