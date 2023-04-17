@@ -1,13 +1,14 @@
 'use client'
 import {AiOutlineMenu} from 'react-icons/ai'
 import Avatar from '../Avatar'
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import MenuItem from './MenuItem'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { openSignupModal } from '@/app/features/signupModalSlice'
 import { openLoginModal } from '@/app/features/loginModalSlice'
 import { User } from '@prisma/client'
 import { signOut } from 'next-auth/react'
+import { openRentModal } from '@/app/features/rentModalSlice'
 
 interface NavMenuProps {
     currentUser?: User
@@ -22,6 +23,16 @@ console.log(currentUser)
     const [isOpen,setIsOpen] = useState(false)
     
     const dispatch = useDispatch()
+    const isLogin = useSelector((state:any) => state.loginModal.isOpen)
+    const isRentModal = useSelector((state:any) => state.rentModal.isOpen)
+
+    const toggleRent = useCallback(() => {
+        if (!currentUser) {
+            dispatch(openLoginModal())
+        }
+        dispatch(openRentModal())
+    },[currentUser, isLogin,isRentModal])
+
 
   return (
     <div
@@ -33,6 +44,7 @@ console.log(currentUser)
             "
         >
         <div
+        onClick={toggleRent}
             className="
                 hidden
                 md:block
@@ -113,7 +125,7 @@ console.log(currentUser)
                 />
                 <MenuItem 
                   label="Rent your home" 
-                  onClick={()=>{}}
+                  onClick={toggleRent}
                 />
                 <hr />
                 <MenuItem 

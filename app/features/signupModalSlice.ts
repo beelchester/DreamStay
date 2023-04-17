@@ -11,7 +11,7 @@ const initialState: SignupModalState = {
 
 
 export const signupModalSlice = createSlice({
-    name: 'signupModalSlice',
+    name: 'signupModal',
     initialState,
     reducers: {
         openSignupModal: (state) => {
