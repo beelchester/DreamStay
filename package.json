@@ -28,7 +28,9 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.8.0",
     "react-redux": "^8.0.5",
-    "typescript": "5.0.3"
+    "react-select": "^5.7.2",
+    "typescript": "5.0.3",
+    "world-countries": "^4.0.0"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

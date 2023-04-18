@@ -145,11 +145,6 @@ onClick={closeModal}
 <div
 className="flex flex-row gap-4 w-full items-center"
 >
-<Button 
-label={actionLabel}
-onClick={onSubmit}
-disabled={disabled}
-/>
 { secondaryActionLabel &&
 <Button 
 label={secondaryActionLabel}
@@ -157,7 +152,12 @@ onClick={secondaryActionHandler}
 disabled={disabled}
 outline
 />
-}
+}<Button 
+label={actionLabel}
+onClick={onSubmit}
+disabled={disabled}
+/>
+
 </div>
 {footer}
 </div>

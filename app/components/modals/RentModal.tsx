@@ -7,6 +7,8 @@ import { useMemo } from "react";
 import Heading from "../Heading";
 import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
+import { FieldValues, useForm } from "react-hook-form";
+import CountrySelect from "../inputs/CountrySelect";
 
 enum STEPS {
   CATEGORY = 0,
@@ -24,6 +26,34 @@ const RentModal = () => {
     const dispatch = useDispatch()
 
     const [step, setStep] = useState(STEPS.CATEGORY)
+
+    const {
+            register,
+            handleSubmit,
+            formState: { errors },
+            setValue,
+            watch,
+            reset,
+        } = useForm<FieldValues>({
+            defaultValues: {
+                category: '',
+                location:null,
+                guestCount: 1,
+                roomCount: 1,
+                bathroomCount: 1,
+                title: '',
+                description: '',
+                price: 1,
+                imageSrc:'',
+                }
+            })
+
+    const category = watch('category') 
+    const location = watch('location')
+
+    const setCustomValue = (id: string, value: any) => {
+            setValue(id, value, { shouldValidate: true, shouldDirty: true,shouldTouch: true })
+        }
 
     const onBack = () => {
         setStep(value => value - 1)
@@ -49,7 +79,7 @@ const RentModal = () => {
     return 'Back'
   }, [step]);
 
-    let bodycontent = (
+    let bodyContent = (
         <div className="flex flex-col gap-8">
         <Heading
         title="Which of these describes your place?"
@@ -66,15 +96,17 @@ const RentModal = () => {
             "
         >
             {
-                    categories.map((category) => (
-                        <div key={category.label}
+                    categories.map((item) => (
+                        <div key={item.label}
                         className="col-span-1"
                         >
                            <CategoryInput 
-                            label={category.label}
-                            icon={category.icon}
-                            selected={false}
-                            onClick={()=>{}}
+                            label={item.label}
+                            icon={item.icon}
+                            selected={category === item.label}
+                            onClick={(category)=>{
+                                setCustomValue('category', category)
+                                }}
                            /> 
                         </div>
                         ))
@@ -83,16 +115,31 @@ const RentModal = () => {
         </div>
     )
 
-    return (
+if (step === STEPS.LOCATION) {
+    bodyContent = (
+      <div className="flex flex-col gap-8">
+        <Heading
+          title="Where is your place located?"
+          subtitle="Help guests find you!"
+        />
+        <CountrySelect
+          value={location} 
+          onChange={(value) => setCustomValue('location', value)} 
+        />
+      </div>
+    );
+    }
+
+        return (
         <Modal
             isOpen={isRentModal}
             onClose={()=>dispatch(closeRentModal())}
-            onSubmit={()=>dispatch(closeRentModal())}
+            onSubmit={onNext}
             title="Rent your home"
             actionLabel={actionLabel}
             secondaryActionLabel={secondaryActionLabel}
             secondaryAction={step===STEPS.CATEGORY?undefined:onBack}
-            body={bodycontent}
+            body={bodyContent}
         />
     );
     };
