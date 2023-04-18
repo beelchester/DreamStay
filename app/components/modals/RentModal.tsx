@@ -9,6 +9,8 @@ import { categories } from "../navbar/Categories";
 import CategoryInput from "../inputs/CategoryInput";
 import { FieldValues, useForm } from "react-hook-form";
 import CountrySelect from "../inputs/CountrySelect";
+import CounterInputInput from "../inputs/CounterInput";
+import CounterInput from "../inputs/CounterInput";
 
 enum STEPS {
   CATEGORY = 0,
@@ -50,6 +52,14 @@ const RentModal = () => {
 
     const category = watch('category') 
     const location = watch('location')
+    const guestCount = watch('guestCount')
+    const roomCount = watch('roomCount')
+    const bathroomCount = watch('bathroomCount')
+    const title = watch('title')
+    const description = watch('description')
+    const price = watch('price')
+    const imageSrc = watch('imageSrc')
+
 
     const setCustomValue = (id: string, value: any) => {
             setValue(id, value, { shouldValidate: true, shouldDirty: true,shouldTouch: true })
@@ -129,6 +139,37 @@ if (step === STEPS.LOCATION) {
       </div>
     );
     }
+
+    if (step === STEPS.INFO) {
+    bodyContent = (
+        <div className="flex flex-col gap-8">
+        <Heading
+          title="Share some basics about your place"
+          subtitle="What amenitis do you have?"
+        />
+        <CounterInput
+          onChange={(value) => setCustomValue('guestCount', value)}
+          value={guestCount}
+          title="Guests" 
+          subtitle="How many guests do you allow?"
+        />
+        <hr />
+        <CounterInput
+          onChange={(value) => setCustomValue('roomCount', value)}
+          value={roomCount}
+          title="Rooms" 
+          subtitle="How many rooms do you have?"
+        />
+        <hr />
+        <CounterInput 
+          onChange={(value) => setCustomValue('bathroomCount', value)}
+          value={bathroomCount}
+          title="Bathrooms" 
+          subtitle="How many bathrooms do you have?"
+        />
+      </div>
+   ) } 
+
 
         return (
         <Modal
