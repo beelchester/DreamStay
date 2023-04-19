@@ -45,9 +45,6 @@ const SignupModal = () => {
         )
         .finally(()=>{
             setisLoading(false)
-            // setTimeout(() => {
-            // dispatch(closeSignupModal())
-            // }, 300);
         }
         )
     }
