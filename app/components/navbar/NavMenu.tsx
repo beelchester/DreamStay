@@ -30,7 +30,9 @@ console.log(currentUser)
         if (!currentUser) {
             dispatch(openLoginModal())
         }
+        else{
         dispatch(openRentModal())
+        }
     },[currentUser, isLogin,isRentModal])
 
 
