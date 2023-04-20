@@ -1,13 +1,17 @@
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
-
 import ClientOnly from "./components/ClientOnly";
+import getListings from "./actions/getListings";
+import ListingCard from "./components/inputs/listings/ListingCard";
+import { useSelector } from "react-redux";
+import getCurrentUser from "./actions/getCurrentUser";
 
 const Home = async () => {
 
-    const isEmpty = true
+const listings = await getListings();
+const currentUser = await getCurrentUser();
 
-if (isEmpty) {
+if (listings.length === 0) {
     return (
       <ClientOnly>
         <EmptyState showReset />
@@ -20,7 +24,7 @@ if (isEmpty) {
       <Container>
         <div 
           className="
-            pt-24
+            pt-[13.5rem]
             grid 
             grid-cols-1 
             sm:grid-cols-2 
@@ -31,7 +35,14 @@ if (isEmpty) {
             gap-8
           "
         >
-        <div>My future listing </div>
+        {listings.map((listing:any) => (
+            <ListingCard
+                key={listing.id}
+                data={listing}
+                currentUser = {currentUser}
+            />
+        )
+        )}
         </div>
       </Container>
     </ClientOnly>
