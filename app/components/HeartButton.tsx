@@ -42,7 +42,7 @@ const {hasFavorited, toggleFavorite} = useFavorite({listingId, currentUser});
       <AiFillHeart
         size={24}
         className={
-          hasFavorited ? 'fill-purple-600' : 'fill-neutral-500/70'
+          hasFavorited ? 'fill-purple-500' : 'fill-neutral-500/70'
         }
       />
     </div>
