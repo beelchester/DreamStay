@@ -7,3 +7,12 @@ body,
 :root {
   height: 100%;
 }
+
+.rdrMonth {
+    width: 100% !important;
+}
+
+.rdrCalendarWrapper {
+    width: 100% !important;
+    font-size: 14px !important;
+}
