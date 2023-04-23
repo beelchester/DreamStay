@@ -98,8 +98,13 @@ const router = useRouter();
         <div className="font-semibold text-lg">
           {location?.region}, {location?.label}
         </div>
+        <div className="flex flex-col gap-1">
+        <div className="text-lg">
+            {data.title}
+        </div>
         <div className="font-light text-neutral-500">
           {reservationDate || data.category}
+        </div>
         </div>
         <div className="flex flex-row items-center gap-1">
           <div className="font-semibold">
