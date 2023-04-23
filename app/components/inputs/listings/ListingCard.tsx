@@ -95,10 +95,10 @@ const router = useRouter();
                 />
           </div>
         </div>
+        <div className="flex flex-col gap-1">
         <div className="font-semibold text-lg">
           {location?.region}, {location?.label}
         </div>
-        <div className="flex flex-col gap-1">
         <div className="text-lg">
             {data.title}
         </div>
