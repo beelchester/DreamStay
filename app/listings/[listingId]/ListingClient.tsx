@@ -23,7 +23,7 @@ const intialDateRange = {
 
 interface ListingClientProps {
         reservations?: SafeReservation[]
-        listing: SafeListing 
+        listing: SafeListing  & { user: SafeUser }
         currentUser: SafeUser | null
     }
 
@@ -33,7 +33,6 @@ const ListingClient:React.FC<ListingClientProps> = ({
     currentUser
     }) => {
 
-    const loginModalOpen = useSelector((state: any) => state.loginModal.isOpen)
     const router = useRouter()
     const dispatch = useDispatch()
     const [isLoading, setIsLoading] = useState(false)

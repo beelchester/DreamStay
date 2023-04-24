@@ -9,7 +9,7 @@ import { SafeUser } from "@/app/types";
 
 
 interface ListingInfoProps {
-  user: SafeUser | null,
+  user: SafeUser,
   description: string;
   guestCount: number;
   roomCount: number;
