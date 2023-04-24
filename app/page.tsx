@@ -1,14 +1,18 @@
 import Container from "@/app/components/Container";
 import EmptyState from "@/app/components/EmptyState";
 import ClientOnly from "./components/ClientOnly";
-import getListings from "./actions/getListings";
+import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/inputs/listings/ListingCard";
 import { useSelector } from "react-redux";
 import getCurrentUser from "./actions/getCurrentUser";
 
-const Home = async () => {
+interface HomeProps {
+        searchParams: IListingsParams
+    }
 
-const listings = await getListings();
+const Home = async ({searchParams}: HomeProps) => {
+
+const listings = await getListings(searchParams);
 const currentUser = await getCurrentUser();
 
 if (listings.length === 0) {

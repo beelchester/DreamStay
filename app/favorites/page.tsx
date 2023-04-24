@@ -14,20 +14,24 @@ const ListingPage = async () => {
   if (listings.length === 0) {
     return (
       <ClientOnly>
+              <div className="pt-[7.5rem]">
         <EmptyState
           title="No favorites found"
           subtitle="Looks like you have no favorite listings."
         />
+        </div>
       </ClientOnly>
     );
   }
 
   return (
     <ClientOnly>
+              <div className="pt-[7.5rem]">
       <FavoriteClient
         listings={listings}
         currentUser={currentUser}
       />
+    </div>
     </ClientOnly>
   );
 }
