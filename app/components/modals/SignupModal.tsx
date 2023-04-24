@@ -38,6 +38,8 @@ const SignupModal = () => {
             setTimeout(() => {
             dispatch(closeSignupModal())
             }, 300);
+            toast.success('Account created successfully')
+            dispatch(openLoginModal())
             })
         .catch((err)=>{
             toast.error('Something went wrong')

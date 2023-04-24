@@ -38,7 +38,6 @@ console.log(currentUser)
 
     const router = useRouter()
 
-
   return (
     <div
         className="relative"
@@ -122,7 +121,7 @@ console.log(currentUser)
                 />
                 <MenuItem 
                   label="My reservations" 
-                  onClick={()=>{}}
+                  onClick={()=>{router.push('/reservations')}}
                 />
                 <MenuItem 
                   label="My properties" 

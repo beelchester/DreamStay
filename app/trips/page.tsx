@@ -8,6 +8,7 @@ const TripsPage = async () => {
     const currentUser = await getCurrentUser()
 
     if(!currentUser) {
+        return(
         <ClientOnly>
         <div className="pt-[7.5rem]">
             <EmptyState
@@ -16,6 +17,7 @@ const TripsPage = async () => {
             />
 </div>
         </ClientOnly>
+        )
     }
 
     const reservations = await getReservations({
@@ -23,7 +25,8 @@ const TripsPage = async () => {
         }
     )
 
-    if(reservations.length === 0) {
+    if(!reservations ||reservations.length === 0) {
+        return(
         <ClientOnly>
                     <div className="pt-[7.5rem]">
             <EmptyState
@@ -32,7 +35,9 @@ const TripsPage = async () => {
             />
 </div>
         </ClientOnly>
+        )
     }
+
     return (
                     <div className="pt-[7.5rem]">
         <TripsClient 
