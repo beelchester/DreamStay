@@ -10,7 +10,7 @@ import {Nunito} from 'next/font/google'
 
 export const metadata = {
   title: 'DreamStay',
-  description: 'A vacation rental booking dummy platform',
+  description: 'A property rental booking dummy platform',
 }
 
 const font = Nunito({
