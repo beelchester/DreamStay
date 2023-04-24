@@ -41,14 +41,8 @@ const Modal:React.FC<ModalProps> = ({
         setTimeout(() => {
             onClose()
         }, 300);
-    }, [disabled,onClose])
+    }, [disabled,onClose,secondaryAction,secondaryActionLabel])
 
-    // const submitHandler = useCallback(() => {
-    //     onSubmit()
-    //     setTimeout(() => {
-    //         closeModal()
-    //     }, 300);
-    // }, [disabled,onSubmit])
 
     const secondaryActionHandler = useCallback(() => {
         if(disabled || !secondaryAction) return

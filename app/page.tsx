@@ -21,7 +21,6 @@ if (listings.length === 0) {
       </ClientOnly>
     );
   }
-
   return (
     <ClientOnly>
       <Container>
