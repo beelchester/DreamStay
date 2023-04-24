@@ -117,7 +117,7 @@ console.log(currentUser)
                 />
                 <MenuItem 
                   label="My favorites" 
-                  onClick={()=>{}}
+                  onClick={()=>{router.push('/favorites')}}
                 />
                 <MenuItem 
                   label="My reservations" 
@@ -125,7 +125,7 @@ console.log(currentUser)
                 />
                 <MenuItem 
                   label="My properties" 
-                  onClick={()=>{}}
+                  onClick={()=>{router.push('/properties')}}
                 />
                 <MenuItem 
                   label="Rent your home" 
