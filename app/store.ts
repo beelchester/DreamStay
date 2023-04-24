@@ -4,12 +4,14 @@ import {configureStore} from '@reduxjs/toolkit'
 import signupModalReducer from './features/signupModalSlice'
 import loginModalReducer from './features/loginModalSlice'
 import rentModalReducer from './features/rentModalSlice'
+import searchModalReducer from './features/searchModalSlice'
 
 export const store = configureStore({
     reducer: {
         signupModal: signupModalReducer,
         loginModal : loginModalReducer,
-        rentModal : rentModalReducer
+        rentModal : rentModalReducer,
+        searchModal : searchModalReducer,
     }
 })
 

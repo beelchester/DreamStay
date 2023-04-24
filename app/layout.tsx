@@ -1,8 +1,8 @@
 import getCurrentUser from './actions/getCurrentUser'
 import ClientOnly from './components/ClientOnly'
 import LoginModal from './components/modals/LoginModal'
-import Modal from './components/modals/Modal'
 import RentModal from './components/modals/RentModal'
+import SearchModal from './components/modals/SearchModal'
 import SignupModal from './components/modals/SignupModal'
 import Navbar from './components/navbar/Navbar'
 import './globals.css'
@@ -30,6 +30,7 @@ export default async function RootLayout({
       <SignupModal/>
       <LoginModal/>
       <RentModal/>
+      <SearchModal/>
       <Navbar currentUser={currentUser}/>
       </ClientOnly>
       <div>

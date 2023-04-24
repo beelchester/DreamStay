@@ -1,8 +1,12 @@
 'use client'
+import { openSearchModal } from '@/app/features/searchModalSlice'
 import {BiSearch} from 'react-icons/bi'
+import { useDispatch } from 'react-redux'
 const Search = () => {
+    const dispatch = useDispatch()
   return (
     <div
+    onClick={()=>dispatch(openSearchModal())}
 className="
     border-[1px]
     w-full
