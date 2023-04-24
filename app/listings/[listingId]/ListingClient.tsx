@@ -68,7 +68,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
             .then(()=>{
                     toast.success('Reservation created successfully')
                     setDateRange(intialDateRange)
-                    router.refresh()
+                    router.push('/trips')
                 })
             .catch(()=>{
                     toast.error('Something went wrong')
@@ -76,7 +76,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
             .finally(()=>{
                     setIsLoading(false)
                 })
-        }, [currentUser, loginModalOpen, totalPrice, dateRange, listing?.id, router])
+        }, [currentUser, dispatch, totalPrice, dateRange, listing?.id, router])
 
     useEffect(() => {
             if(dateRange.startDate && dateRange.endDate){
@@ -90,7 +90,7 @@ const ListingClient:React.FC<ListingClientProps> = ({
                     }
                 }
 
-        }, [reservedDates])
+        }, [reservedDates, dateRange, listing.price])
 
     const category = useMemo(() => {
         return categories.find((category) => category.label === listing.category)

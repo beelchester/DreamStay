@@ -47,10 +47,12 @@ const ListingHead = ( {title, imageSrc, locationValue, id, currentUser}: Listing
             right-5
           "
         >
+      { currentUser &&
           <HeartButton
             listingId={id}
             currentUser={currentUser}
           />
+        }
         </div>
       </div>
     </>)

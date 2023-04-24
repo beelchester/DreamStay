@@ -14,7 +14,6 @@ const useFavorite = ({
     listingId, currentUser
 }: IUseFavorite) => {
     const router = useRouter()
-    const loginModal = useSelector((state: any) => state.loginModal)
 
     const hasFavorited = useMemo(() => {
         const list = currentUser?.favoriteIds || [];
@@ -26,7 +25,6 @@ const useFavorite = ({
         e.stopPropagation();
 
         if(!currentUser){
-            loginModal.open();
             return;
         }
         try {
@@ -50,7 +48,6 @@ const useFavorite = ({
         currentUser,
         hasFavorited,
         listingId,
-        loginModal,
         router
     ]);
     return {

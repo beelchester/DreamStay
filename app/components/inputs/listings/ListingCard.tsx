@@ -89,10 +89,12 @@ const router = useRouter();
             top-3
             right-3
           ">
-            <HeartButton
-                listingId={data.id}
-                currentUser={currentUser}
-                />
+          { currentUser &&
+              <HeartButton
+                  listingId={data.id}
+              currentUser={currentUser}
+              />
+              }
           </div>
         </div>
         <div className="flex flex-col gap-1">

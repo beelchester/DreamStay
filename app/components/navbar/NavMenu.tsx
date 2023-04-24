@@ -9,6 +9,7 @@ import { openLoginModal } from '@/app/features/loginModalSlice'
 import { User } from '@prisma/client'
 import { signOut } from 'next-auth/react'
 import { openRentModal } from '@/app/features/rentModalSlice'
+import { useRouter } from 'next/navigation'
 
 interface NavMenuProps {
     currentUser?: User
@@ -34,6 +35,8 @@ console.log(currentUser)
         dispatch(openRentModal())
         }
     },[currentUser, isLogin,isRentModal])
+
+    const router = useRouter()
 
 
   return (
@@ -111,7 +114,7 @@ console.log(currentUser)
                 <>
                 <MenuItem 
                   label="My trips" 
-                  onClick={()=>{}}
+                  onClick={()=>{router.push('/trips')}}
                 />
                 <MenuItem 
                   label="My favorites" 

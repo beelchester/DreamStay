@@ -33,6 +33,7 @@ if (listings.length === 0) {
             xl:grid-cols-5
             2xl:grid-cols-6
             gap-8
+            pb-5
           "
         >
         {listings.map((listing) => (
