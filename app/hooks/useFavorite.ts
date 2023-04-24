@@ -1,13 +1,12 @@
-import { User } from "@prisma/client";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { useCallback, useMemo } from "react";
 import { toast } from "react-hot-toast";
-import { useSelector } from "react-redux";
+import { SafeUser } from "../types";
 
 interface IUseFavorite {
     listingId: string;
-    currentUser?: User
+    currentUser?: SafeUser | null;
 }
 
 const useFavorite = ({

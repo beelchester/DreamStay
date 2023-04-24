@@ -2,7 +2,6 @@
 
 import Container from '@/app/components/Container'
 import { categories } from '@/app/components/navbar/Categories'
-import { Reservation, User } from '@prisma/client'
 import React, { useCallback, useEffect, useMemo, useState } from 'react'
 import ListingHead from './ListingHead'
 import ListingInfo from './ListingInfo'
@@ -14,6 +13,7 @@ import axios from 'axios'
 import { toast } from 'react-hot-toast'
 import ListingReservation from './ListingReservation'
 import { Range } from 'react-date-range'
+import { SafeListing, SafeReservation, SafeUser } from '@/app/types'
 
 const intialDateRange = {
     startDate: new Date(),
@@ -22,9 +22,9 @@ const intialDateRange = {
     }
 
 interface ListingClientProps {
-        reservations?: Reservation[]
-        listing: any
-        currentUser: User
+        reservations?: SafeReservation[]
+        listing: SafeListing 
+        currentUser: SafeUser | null
     }
 
 const ListingClient:React.FC<ListingClientProps> = ({

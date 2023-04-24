@@ -3,7 +3,6 @@ import EmptyState from "@/app/components/EmptyState";
 import ClientOnly from "./components/ClientOnly";
 import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/inputs/listings/ListingCard";
-import { useSelector } from "react-redux";
 import getCurrentUser from "./actions/getCurrentUser";
 
 interface HomeProps {

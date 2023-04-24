@@ -3,7 +3,7 @@
 import Heading from '@/app/components/Heading'
 import HeartButton from '@/app/components/HeartButton'
 import useCountries from '@/app/hooks/useCountries'
-import { User } from '@prisma/client'
+import { SafeUser } from '@/app/types'
 import Image from 'next/image'
 import React from 'react'
 
@@ -12,7 +12,7 @@ interface ListingHeadProps {
     imageSrc: string
     locationValue: string
     id: string
-    currentUser?: User | null
+    currentUser?: SafeUser | null
     }
 
 const ListingHead = ( {title, imageSrc, locationValue, id, currentUser}: ListingHeadProps

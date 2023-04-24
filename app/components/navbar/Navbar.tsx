@@ -1,16 +1,13 @@
 'use client'
-import { useDispatch, useSelector } from "react-redux"
 import Container from "../Container"
 import Logo from "./Logo"
 import NavMenu from "./NavMenu"
 import Search from "./Search"
-import { openSignupModal } from "@/app/features/signupModalSlice"
-import { useEffect } from "react"
-import { User } from "@prisma/client"
 import Categories from "./Categories"
+import { SafeUser } from "@/app/types"
 
 interface NavbarProps {
-        currentUser?: User
+        currentUser?: SafeUser | null
     }
 
 const Navbar:React.FC<NavbarProps> = ({

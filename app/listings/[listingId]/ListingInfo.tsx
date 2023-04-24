@@ -2,15 +2,14 @@
 
 import { IconType } from "react-icons";
 
-import useCountries from "@/app/hooks/useCountries";
 
 import Avatar from "@/app/components/Avatar";
-import { User } from "@prisma/client";
 import ListingCategory from "./ListingCategory";
+import { SafeUser } from "@/app/types";
 
 
 interface ListingInfoProps {
-  user: User,
+  user: SafeUser | null,
   description: string;
   guestCount: number;
   roomCount: number;
@@ -30,9 +29,7 @@ const ListingInfo: React.FC<ListingInfoProps> = ({
   roomCount,
   bathroomCount,
   category,
-  locationValue,
 }) => {
-  const { getByValue } = useCountries();
 
 
   return ( 

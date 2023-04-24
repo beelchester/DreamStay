@@ -10,9 +10,10 @@ import { User } from '@prisma/client'
 import { signOut } from 'next-auth/react'
 import { openRentModal } from '@/app/features/rentModalSlice'
 import { useRouter } from 'next/navigation'
+import { SafeUser } from '@/app/types'
 
 interface NavMenuProps {
-    currentUser?: User
+    currentUser?: SafeUser | null
 }
 
 const NavMenu:React.FC<NavMenuProps> = ({
