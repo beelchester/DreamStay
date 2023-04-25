@@ -112,7 +112,7 @@ const signupModal = useSelector((state:any) => state.signupModal);
       />
       <div className="
       text-neutral-500 text-center mt-4 font-light">
-        <p>First time using Airbnb?
+        <p>First time using DreamStay?
           <span 
             onClick={onToggle} 
             className="
