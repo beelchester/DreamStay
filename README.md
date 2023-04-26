@@ -11,6 +11,12 @@ NextJS, React, TailwindCSS, Redux, Next Auth, Prisma, PostgreSQL
 ### Live Preview
 Check out the live preview of DreamStay here: https://dreamstay.vercel.app/
 
+
+
+https://user-images.githubusercontent.com/73148455/234564660-3bda8826-1b12-4db3-84c8-905b2dd8e2a2.mp4
+
+
+
 ### Contributing
 If you'd like to contribute to TaskMaster, please follow these steps:
 1. Fork the repository
