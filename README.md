@@ -18,7 +18,7 @@ https://user-images.githubusercontent.com/73148455/234564660-3bda8826-1b12-4db3-
 
 
 ### Contributing
-If you'd like to contribute to TaskMaster, please follow these steps:
+If you'd like to contribute to DreamStay, please follow these steps:
 1. Fork the repository
 2. Create a new branch
 3. Make your changes and commit them
